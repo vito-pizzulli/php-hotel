@@ -55,7 +55,11 @@
 
 <body>
     <h1 class="text-center m-4">PHP Hotel</h1>
+
+    <!-- Table start -->
     <table class="table table-striped-columns text-center w-75 m-auto">
+
+        <!-- Table head -->
         <thead class="table-info border border-info">
             <tr>
                 <?php
@@ -72,6 +76,8 @@
                 ?>
             </tr>
         </thead>
+
+        <!-- Table body -->
         <tbody class="border border-info">
             <?php
                 foreach ($hotels as $hotel) {
