@@ -54,61 +54,63 @@
 </head>
 
 <body>
-    <table class="table">
-        <thead>
+    <h1 class="text-center m-4">PHP Hotel</h1>
+    <table class="table table-striped-columns text-center w-75 m-auto">
+        <thead class="table-info border border-info">
             <tr>
                 <?php
                     $keys = array_keys($hotels[0]);
                     foreach ($keys as $key) {
                 ?>
-                <th>
-                    <?php
-                        echo $key;
-                    ?>
-                </th>
+                        <th>
+                            <?php
+                                echo $key;
+                            ?>
+                        </th>
                 <?php
                     }
                 ?>
             </tr>
         </thead>
-    </table>
-
-    <?php
-        foreach ($hotels as $hotel) {
-    ?>
-    <ul>
-        <li>
+        <tbody class="border border-info">
             <?php
-                echo $hotel['name'];
+                foreach ($hotels as $hotel) {
             ?>
-        </li>
-        <li>
+                    <tr>
+                        <td>
+                            <?php
+                                echo $hotel['name'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                echo $hotel['description'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                if ($hotel['parking'] === true) {
+                                    echo 'true';
+                                } else {
+                                    echo 'false';
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                echo $hotel['vote'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                echo $hotel['distance_to_center'];
+                            ?>
+                        </td>
+                    </tr>
             <?php
-                echo $hotel['description'];
-            ?>
-        </li>
-        <li>
-            <?php
-                if ($hotel['parking'] === true) {
-                    echo 'true';
-                } else {
-                    echo 'false';
                 }
             ?>
-        </li>
-        <li>
-            <?php
-                echo $hotel['vote'];
-            ?>
-        </li>
-        <li>
-            <?php
-                echo $hotel['distance_to_center'];
-            ?>
-        </li>
-    </ul>
-    <?php
-        }
-    ?>
+        </tbody>
+    </table>
 </body>
 </html>
