@@ -46,6 +46,12 @@
             $hasParkingFilter = false;
         }
 
+        if (isset($_GET['chosenVote'])) {
+            $chosenVote = $_GET['chosenVote'];
+        } else {
+            $chosenVote = 0;
+        }
+
 ?>
 
 <!DOCTYPE html>
@@ -67,10 +73,31 @@
 
 <body>
     <h1 class="my_h1">PHP Hotel</h1>
-
+    
+    <!-- Form start -->
     <form action="./index.php" method="get">
+
+        <!-- Filter if hotel has parking -->
         <input type="checkbox" id="hasParkingFilter" name="hasParkingFilter" value="true">
-        <label for="hasParkingFilter" class="text-light"> Show only hotels that have parking</label>
+        <label for="hasParkingFilter" class="text-light"> Show only hotels that have parking</label><br>
+
+        <!-- Filter by hotel vote -->
+        <label for="chosenVote" class="text-light">Show only hotels equal to or above:</label>
+        <select name="chosenVote" id="chosenVote">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+
+        <!-- Submit button -->
         <button type="submit">Filter</button>
     </form>
 
@@ -100,6 +127,7 @@
             <?php
                 foreach ($hotels as $hotel) {
                     if (!$hasParkingFilter || $hotel['parking']) {
+                        if ($chosenVote === 0 || $hotel['vote'] >= $chosenVote) {
             ?>
                         <tr>
                             <td><?php echo $hotel['name']; ?></td>
@@ -117,6 +145,7 @@
                             <td><?php echo $hotel['distance_to_center']; ?></td>
                         </tr>
             <?php
+                        }
                     }
                 }
             ?>
