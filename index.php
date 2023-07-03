@@ -75,16 +75,16 @@
     <h1 class="my_h1">PHP Hotel</h1>
     
     <!-- Form start -->
-    <form action="./index.php" method="get">
+    <form action="./index.php" method="get" class="text-center form-control bg-info bg-opacity-50 w-25 m-auto p-3 mb-5">
 
         <!-- Filter if hotel has parking -->
         <input type="checkbox" id="hasParkingFilter" name="hasParkingFilter" value="true">
-        <label for="hasParkingFilter" class="text-light"> Show only hotels that have parking</label><br>
+        <label for="hasParkingFilter" class="my_label mb-4"> Show only hotels that have parking</label><br>
 
         <!-- Filter by hotel vote -->
-        <label for="chosenVote" class="text-light">Show only hotels equal to or above:</label>
-        <select name="chosenVote" id="chosenVote">
-            <option value="0">0</option>
+        <label for="chosenVote" class="my_label mb-2">Show only hotels rated greater than or equal to:</label>
+        <select name="chosenVote" id="chosenVote" class="my_select">
+            <option hidden value="0">Select</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -95,14 +95,14 @@
             <option value="8">8</option>
             <option value="9">9</option>
             <option value="10">10</option>
-        </select>
+        </select><br>
 
         <!-- Submit button -->
-        <button type="submit">Filter</button>
+        <button type="submit" class="btn btn-info my_button">Filter</button>
     </form>
 
     <!-- Table start -->
-    <table class="table text-center w-75 m-auto text-light">
+    <table class="my_table table text-center w-75 m-auto text-light">
 
         <!-- Table head -->
         <thead class="border border-info bg-info bg-gradient text-dark">

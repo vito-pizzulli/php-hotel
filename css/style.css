@@ -4,7 +4,7 @@ body {
     background-size: cover;
 }
 
-table {
+table.my_table {
     font-family: 'VT323', monospace;
     font-size: 1.5rem;
 }
@@ -15,4 +15,27 @@ h1.my_h1 {
     text-align: center;
     color: white;
     margin: 2rem 0;
+}
+
+label.my_label {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    color: white;
+}
+
+select.my_select {
+    font-family: 'VT323', monospace;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+button.my_button {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    border-radius: 10px;
 }
