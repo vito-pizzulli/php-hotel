@@ -48,19 +48,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Hotel</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Google Fonts VT323 Regular 400 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5.2.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1 class="text-center m-4">PHP Hotel</h1>
+    <h1 class="my_h1">PHP Hotel</h1>
 
     <!-- Table start -->
-    <table class="table table-striped-columns text-center w-75 m-auto">
+    <table class="table text-center w-75 m-auto text-light">
 
         <!-- Table head -->
-        <thead class="table-info border border-info">
+        <thead class="border border-info bg-info bg-gradient text-dark">
             <tr>
                 <?php
                     $keys = array_keys($hotels[0]);
@@ -78,7 +84,7 @@
         </thead>
 
         <!-- Table body -->
-        <tbody class="border border-info">
+        <tbody class="border border-info bg-dark bg-opacity-50">
             <?php
                 foreach ($hotels as $hotel) {
             ?>
