@@ -99,7 +99,7 @@
         <tbody class="border border-info bg-dark bg-opacity-50">
             <?php
                 foreach ($hotels as $hotel) {
-                    if ($hasParkingFilter == false || $hotel['parking'] == true) {
+                    if (!$hasParkingFilter || $hotel['parking']) {
             ?>
                         <tr>
                             <td><?php echo $hotel['name']; ?></td>
