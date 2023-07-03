@@ -36,9 +36,15 @@
             'parking' => true,
             'vote' => 2,
             'distance_to_center' => 50
-        ],
+        ]
 
-    ];
+        ];
+
+        if (isset($_GET['hasParkingFilter'])) {
+            $hasParkingFilter = $_GET['hasParkingFilter'];
+        } else {
+            $hasParkingFilter = false;
+        }
 
 ?>
 
@@ -61,6 +67,12 @@
 
 <body>
     <h1 class="my_h1">PHP Hotel</h1>
+
+    <form action="./index.php" method="get">
+        <input type="checkbox" id="hasParkingFilter" name="hasParkingFilter" value="true">
+        <label for="hasParkingFilter" class="text-light"> Show only hotels that have parking</label>
+        <button type="submit">Filter</button>
+    </form>
 
     <!-- Table start -->
     <table class="table text-center w-75 m-auto text-light">
@@ -87,39 +99,25 @@
         <tbody class="border border-info bg-dark bg-opacity-50">
             <?php
                 foreach ($hotels as $hotel) {
+                    if ($hasParkingFilter == false || $hotel['parking'] == true) {
             ?>
-                    <tr>
-                        <td>
-                            <?php
-                                echo $hotel['name'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                                echo $hotel['description'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                                if ($hotel['parking'] === true) {
-                                    echo 'true';
-                                } else {
-                                    echo 'false';
-                                }
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                                echo $hotel['vote'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                                echo $hotel['distance_to_center'];
-                            ?>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $hotel['name']; ?></td>
+                            <td><?php echo $hotel['description']; ?></td>
+                            <td>
+                                <?php
+                                    if ($hotel['parking']) {
+                                        echo 'true';
+                                    } else {
+                                        echo 'false';
+                                    }
+                                ?>
+                            </td>
+                            <td><?php echo $hotel['vote']; ?></td>
+                            <td><?php echo $hotel['distance_to_center']; ?></td>
+                        </tr>
             <?php
+                    }
                 }
             ?>
         </tbody>
