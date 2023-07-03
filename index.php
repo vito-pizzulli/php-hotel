@@ -50,6 +50,42 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    
+        <?php
+            foreach ($hotels as $hotel) {
+        ?>
+        <ul>
+            <li>
+                <?php
+                    echo $hotel['name'];
+                ?>
+            </li>
+            <li>
+                <?php
+                    echo $hotel['description'];
+                ?>
+            </li>
+            <li>
+                <?php
+                    if ($hotel['parking'] === true) {
+                        echo 'true';
+                    } else {
+                        echo 'false';
+                    }
+                ?>
+            </li>
+            <li>
+                <?php
+                    echo $hotel['vote'];
+                ?>
+            </li>
+            <li>
+                <?php
+                    echo $hotel['distance_to_center'];
+                ?>
+            </li>
+        </ul>
+        <?php
+            }
+        ?>
 </body>
 </html>
